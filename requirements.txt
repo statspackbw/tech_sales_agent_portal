@@ -1,0 +1,3 @@
+# Only needed when DATABASE_URL points at Postgres.
+# Everything else in this project uses the Python standard library.
+psycopg2-binary==2.9.12

@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: statspack-agent-portal
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.3"
+      # Paste your Neon connection string here in the Render dashboard.
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      # Free key from https://www.exchangerate-api.com/ — enables live rates.
+      - key: EXCHANGERATE_API_KEY
+        sync: false
